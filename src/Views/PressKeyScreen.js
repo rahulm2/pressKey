@@ -3,20 +3,18 @@ import Layout from "../Components/Layout/Layout";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import { getImageName } from "../Utils/utilFunctions";
-const renderLoader = () => <p>Loading</p>;
 
 const PressKeyScreen = (props) => {
   const inputRef = useRef(null);
-  const [inputKey, setKey] = useState("");
   const [image, setImg] = useState(null);
+
   useEffect(() => {
     inputRef.current.focus();
-    setKey("");
   }, []);
 
   let onChangeKey = (e) => {
+    e.target.value = e.target.value.slice(-1);
     let keyPressed = e.target.value;
-    setImg(keyPressed);
     keyPressed = getImageName(keyPressed);
     if (keyPressed == null) {
       setImg(null);
@@ -45,7 +43,6 @@ const PressKeyScreen = (props) => {
               right: 0,
             }}
             onChange={onChangeKey}
-            value={inputKey}
           />
           {image == null ? null : (
             <img src={image} alt="alien" className="hero__container--img" />

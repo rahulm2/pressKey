@@ -1,4 +1,3 @@
-@import "colors";
 @import "media-queries";
 
 %align-center {
@@ -7,17 +6,22 @@
 }
 
 .footer {
-  background: $light;
+  background-color: #096446;
   height: 10vh;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1200px) / 2);
   z-index: 10;
   position: relative;
+  a {
+    color: yellow;
+    font-size: 1.5rem;
+  }
 
   &__content {
     @extend %align-center;
     width: 100%;
     justify-content: center;
+    color: aliceblue;
   }
 }
